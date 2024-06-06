@@ -1,1 +1,84 @@
-<p>menu works!</p>
+<style>
+  body {
+      font-family: Arial, sans-serif;
+  }
+  nav {
+      background-color: #0074D9;
+      color: #FFF;
+      padding: 10px;
+  }
+  nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  }
+  nav ul li {
+      display: inline-block;
+      margin-right: 20px;
+  }
+  /* Estilos para os filtros */
+  .filters {
+      margin-top: 20px;
+  }
+  .filters select, .filters input[type="text"] {
+      margin-right: 10px;
+  }
+  table {
+      width: 100%;
+      border-collapse: collapse;
+  }
+  th, td {
+      border: 1px solid #DDD;
+      padding: 10px;
+      text-align: center;
+  }
+  th {
+      background-color: #F0F0F0;
+  }
+
+</style>
+
+<div class="filters">
+  <label for="region">Region:</label>
+  <select id="region" name="region">
+      <option value="all">All</option>
+  </select>
+
+  <label for="species">Species:</label>
+  <select id="species" name="species">
+      <option value="all">All</option>
+  </select>
+
+  <label for="conservation-status">Conservation Status:</label>
+  <select id="conservation-status" name="conservation_status">
+      <option value="all">All</option>
+  </select>
+
+  <label for="water-temperature">Water Temperature:</label>
+  <input type="text" id="water-temperature" name="water_temperature">
+
+  <label for="ph">pH:</label>
+  <input type="text" id="ph" name="ph">
+
+  <label for="pollution-levels">Pollution Levels:</label>
+  <input type="text" id="pollution-levels" name="pollution_levels">
+</div>
+<table>
+  <thead>
+      <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+          <th>Column 4</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Data 1</td>
+          <td>Data 2</td>
+          <td>Data 3</td>
+          <td>Data 4</td>
+      </tr>
+  </tbody>
+</table>
+
