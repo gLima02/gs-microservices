@@ -1,4 +1,4 @@
-import { ProjetoConservacao } from './projeto-conservacao';
+import { ProjetosConservacao } from './projetosConservacao';
 import { Especie } from "./especie";
 
 export interface OceanData {
@@ -7,5 +7,5 @@ export interface OceanData {
   pH: number;
   nivelPoluicao: string;
   especies: Especie[];
-  ProjetoConservacao: ProjetoConservacao[];
+  projetosConservacao: ProjetosConservacao[];
 }

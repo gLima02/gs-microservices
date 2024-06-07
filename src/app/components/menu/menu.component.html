@@ -63,22 +63,49 @@
   <label for="pollution-levels">Pollution Levels:</label>
   <input type="text" id="pollution-levels" name="pollution_levels">
 </div>
+
 <table>
-  <thead>
-      <tr>
-          <th>Column 1</th>
-          <th>Column 2</th>
-          <th>Column 3</th>
-          <th>Column 4</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Data 1</td>
-          <td>Data 2</td>
-          <td>Data 3</td>
-          <td>Data 4</td>
-      </tr>
-  </tbody>
+  <tr>
+    <th>Região</th>
+    <th>Temperatura da Água</th>
+    <th>pH</th>
+    <th>Nível de Poluição</th>
+    <th>Nome da Espécie</th>
+    <th>Status da Espécie</th>
+    <th>Nome do Projeto de Conservação</th>
+    <th>Tipo do Projeto de Conservação</th>
+    <th>Tipo de Participação</th>
+  </tr>
+  <tr *ngFor="let item of dados">
+    <td>{{ item.regiao }}</td>
+    <td>{{ item.temperaturaAgua }}</td>
+    <td>{{ item.pH }}</td>
+    <td>{{ item.nivelPoluicao }}</td>
+    <td>
+      <ul style="list-style-type: none;">
+        <li *ngFor="let especie of item.especies">{{ especie.nome  }} <br><br> </li>
+      </ul>
+    </td>
+    <td>
+      <ul style="list-style-type: none;">
+        <li *ngFor="let especie of item.especies">{{ especie.status }} <br><br></li>
+      </ul>
+    </td>
+    <td>
+      <ul style="list-style-type: none;">
+        <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.nomeProjeto }} <br><br></li>
+      </ul>
+    </td>
+    <td>
+      <ul style="list-style-type: none;">
+        <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.tipoProjeto }} <br><br></li>
+      </ul>
+    </td>
+    <td>
+      <ul style="list-style-type: none;">
+        <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.tipoParticipacao }} <br><br></li>
+      </ul>
+    </td>
+  </tr>
 </table>
 
