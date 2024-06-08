@@ -38,74 +38,129 @@
 
 </style>
 
-<div class="filters">
-  <label for="region">Region:</label>
-  <select id="region" name="region">
-      <option value="all">All</option>
-  </select>
 
-  <label for="species">Species:</label>
-  <select id="species" name="species">
-      <option value="all">All</option>
-  </select>
+<div class="filters  mt-4">
+  <form class="form-inline">
+    <div class="form-group mb-2 mr-2">
+      <label for="region" class="mr-2">Region:</label>
+      <select id="region" name="region" class="form-control">
+        <option value="">Todos</option>
+        <option value="Baixo">Índico</option>
+        <option value="Medio">Atlântico Norte</option>
+        <option value="Alto">Pacífico Norte</option>
+      </select>
+    </div>
 
-  <label for="conservation-status">Conservation Status:</label>
-  <select id="conservation-status" name="conservation_status">
-      <option value="all">All</option>
-  </select>
+    <div class="form-group mb-2 mr-2">
+      <label for="species" class="mr-2">Species:</label>
+      <select id="species" name="species" class="form-control">
+        <option value="">Todos</option>
+        <option value="Tartaruga-verde">Tartaruga-verde</option>
+        <option value="Tubarao-branco">Tubarão-branco</option>
+        <option value="Coral">Coral</option>
+        <option value="Baleia-azul">Baleia-azul</option>
+        <option value="Peixe-palhaco">Peixe-palhaço</option>
 
-  <label for="water-temperature">Water Temperature:</label>
-  <input type="text" id="water-temperature" name="water_temperature">
+      </select>
+    </div>
 
-  <label for="ph">pH:</label>
-  <input type="text" id="ph" name="ph">
+    <div class="form-group mb-2 mr-2">
+      <label for="conservation-status" class="mr-2">Conservation Status:</label>
+      <select id="conservation-status" name="conservation_status" class="form-control">
+        <option value="">Todos</option>
+        <option value="Ameacada">Ameaçada</option>
+        <option value="Vulneravel">Vulnerável</option>
+        <option value="Criticamente-ameacado">Criticamente ameaçado</option>
+        <option value="Menos-preocupante">Menos preocupante</option>
+      </select>
+    </div>
 
-  <label for="pollution-levels">Pollution Levels:</label>
-  <input type="text" id="pollution-levels" name="pollution_levels">
+    <div class="form-group mb-2 mr-2">
+      <label for="water-temperature-min" class="mr-2">Water Temperature (min):</label>
+      <input type="text" id="water-temperature-min" name="water_temperature_min" class="form-control">
+    </div>
+
+    <div class="form-group mb-2 mr-2">
+      <label for="water-temperature-max" class="mr-2">Water Temperature (max):</label>
+      <input type="text" id="water-temperature-max" name="water_temperature_max" class="form-control">
+    </div>
+
+    <div class="form-group mb-2 mr-2">
+      <label for="ph-min" class="mr-2">pH (min):</label>
+      <input type="text" id="ph-min" name="ph_min" class="form-control">
+    </div>
+
+    <div class="form-group mb-2 mr-2">
+      <label for="ph-max" class="mr-2">pH (max):</label>
+      <input type="text" id="ph-max" name="ph_max" class="form-control">
+    </div>
+
+    <div class="form-group mb-2 mr-2">
+      <label for="pollution-levels" class="mr-2">Pollution Levels:</label>
+      <select id="pollution-levels" name="pollution_levels" class="form-control">
+        <option value="">Todos</option>
+        <option value="Baixo">Baixo</option>
+        <option value="Medio">Médio</option>
+        <option value="Alto">Alto</option>
+      </select>
+    </div>
+
+    <div class="form-group mb-2">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
 </div>
 
-<table>
-  <tr>
-    <th>Região</th>
-    <th>Temperatura da Água</th>
-    <th>pH</th>
-    <th>Nível de Poluição</th>
-    <th>Nome da Espécie</th>
-    <th>Status da Espécie</th>
-    <th>Nome do Projeto de Conservação</th>
-    <th>Tipo do Projeto de Conservação</th>
-    <th>Tipo de Participação</th>
-  </tr>
-  <tr *ngFor="let item of dados">
-    <td>{{ item.regiao }}</td>
-    <td>{{ item.temperaturaAgua }}</td>
-    <td>{{ item.pH }}</td>
-    <td>{{ item.nivelPoluicao }}</td>
-    <td>
-      <ul style="list-style-type: none;">
-        <li *ngFor="let especie of item.especies">{{ especie.nome  }} <br><br> </li>
-      </ul>
-    </td>
-    <td>
-      <ul style="list-style-type: none;">
-        <li *ngFor="let especie of item.especies">{{ especie.status }} <br><br></li>
-      </ul>
-    </td>
-    <td>
-      <ul style="list-style-type: none;">
-        <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.nomeProjeto }} <br><br></li>
-      </ul>
-    </td>
-    <td>
-      <ul style="list-style-type: none;">
-        <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.tipoProjeto }} <br><br></li>
-      </ul>
-    </td>
-    <td>
-      <ul style="list-style-type: none;">
-        <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.tipoParticipacao }} <br><br></li>
-      </ul>
-    </td>
-  </tr>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<table class="table table-info table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Região</th>
+      <th>Temperatura da Água</th>
+      <th>pH</th>
+      <th>Nível de Poluição</th>
+      <th>Nome da Espécie</th>
+      <th>Status da Espécie</th>
+      <th>Nome do Projeto de Conservação</th>
+      <th>Tipo do Projeto de Conservação</th>
+      <th>Tipo de Participação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dados">
+      <td>{{ item.regiao }}</td>
+      <td>{{ item.temperaturaAgua }}</td>
+      <td>{{ item.pH }}</td>
+      <td>{{ item.nivelPoluicao }}</td>
+      <td>
+        <ul class="list-unstyled">
+          <li *ngFor="let especie of item.especies">{{ especie.nome }} <br><br> </li>
+        </ul>
+      </td>
+      <td>
+        <ul class="list-unstyled">
+          <li *ngFor="let especie of item.especies">{{ especie.status }} <br><br></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="list-unstyled">
+          <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.nomeProjeto }} <br><br></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="list-unstyled">
+          <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.tipoProjeto }} <br><br></li>
+        </ul>
+      </td>
+      <td>
+        <ul class="list-unstyled">
+          <li *ngFor="let projeto of item.projetosConservacao">{{ projeto.tipoParticipacao }} <br><br></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
 
