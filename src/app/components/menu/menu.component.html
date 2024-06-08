@@ -38,83 +38,107 @@
 
 </style>
 
+<div class="filters mt-4">
+  <form [formGroup]="dadosForm" (ngSubmit)="onSubmit()" class="form-inline">
+   
+   <div>
 
-<div class="filters  mt-4">
-  <form class="form-inline">
+   
     <div class="form-group mb-2 mr-2">
-      <label for="region" class="mr-2">Region:</label>
-      <select id="region" name="region" class="form-control">
+      <label for="region" class="mr-2">Região:</label>
+      <select id="region" formControlName="region" class="form-control">
         <option value="">Todos</option>
-        <option value="Baixo">Índico</option>
-        <option value="Medio">Atlântico Norte</option>
-        <option value="Alto">Pacífico Norte</option>
+        <option value="regiao=%C3%8Dndico&">Índico</option>
+        <option value="regiao=Atl%C3%A2ntico%20Norte&">Atlântico Norte</option>
+        <option value="regiao=Atl%C3%A2ntico%20Sul">Atlântico Sul</option>
+        <option value="regiao=Pac%C3%ADfico%20Norte&">Pacífico Norte</option>
       </select>
     </div>
 
     <div class="form-group mb-2 mr-2">
-      <label for="species" class="mr-2">Species:</label>
-      <select id="species" name="species" class="form-control">
+      <label for="species" class="mr-2">Especies:</label>
+      <select id="species" formControlName="species" class="form-control">
         <option value="">Todos</option>
-        <option value="Tartaruga-verde">Tartaruga-verde</option>
-        <option value="Tubarao-branco">Tubarão-branco</option>
-        <option value="Coral">Coral</option>
-        <option value="Baleia-azul">Baleia-azul</option>
-        <option value="Peixe-palhaco">Peixe-palhaço</option>
-
+        <option value="especie=Tartaruga-verde&">Tartaruga-verde</option>
+        <option value="especie=Tubar%C3%A3o-branco&">Tubarão-branco</option>
+        <option value="especie=Coral&">Coral</option>
+        <option value="especie=Baleia-azul&">Baleia-azul</option>
+        <option value="especie=Peixe-palha%C3%A7o&">Peixe-palhaço</option>
       </select>
     </div>
 
+  </div>
+
+    <div>
+
+    
     <div class="form-group mb-2 mr-2">
-      <label for="conservation-status" class="mr-2">Conservation Status:</label>
-      <select id="conservation-status" name="conservation_status" class="form-control">
+      <label for="conservation-status" class="mr-2">Status de conservação:</label>
+      <select id="conservation-status" formControlName="conservationStatus" class="form-control">
         <option value="">Todos</option>
-        <option value="Ameacada">Ameaçada</option>
-        <option value="Vulneravel">Vulnerável</option>
-        <option value="Criticamente-ameacado">Criticamente ameaçado</option>
-        <option value="Menos-preocupante">Menos preocupante</option>
+        <option value="statusConservacao=Amea%C3%A7ada&">Ameaçada</option>
+        <option value="statusConservacao=Vulner%C3%A1vel&">Vulnerável</option>
+        <option value="statusConservacao=Criticamente%20amea%C3%A7ado&">Criticamente ameaçado</option>
+        <option value="statusConservacao=Menos%20preocupante&">Menos preocupante</option>
       </select>
     </div>
+    <div class="form-group mb-2 mr-2">
+      <label for="pollution-levels" class="mr-2">Nível de Poluição:</label>
+      <select id="pollution-levels" formControlName="pollutionLevels" class="form-control pe-5">
+        <option value="">Todos</option>
+        <option value="nivelPoluicao=Baixo&">Baixo</option>
+        <option value="nivelPoluicao=Moderado&">Moderado</option>
+        <option value="nivelPoluicao=Alto&">Alto</option>
+      </select>
+    </div>
+  </div>
+  
+
+  <div>
+    
+    <div>
+
+    
+  </div>
 
     <div class="form-group mb-2 mr-2">
-      <label for="water-temperature-min" class="mr-2">Water Temperature (min):</label>
-      <input type="text" id="water-temperature-min" name="water_temperature_min" class="form-control">
+      <label for="water-temperature-min" class="mr-2">Temperatura da água (min):</label>
+      <input type="number" id="water-temperature-min" formControlName="waterTemperatureMin" class="form-control">
     </div>
 
     <div class="form-group mb-2 mr-2">
-      <label for="water-temperature-max" class="mr-2">Water Temperature (max):</label>
-      <input type="text" id="water-temperature-max" name="water_temperature_max" class="form-control">
+      <label for="water-temperature-max" class="mr-2">Temperatura da água (max):</label>
+      <input type="number" id="water-temperature-max" formControlName="waterTemperatureMax" class="form-control">
     </div>
+    
+  </div>
 
+  <div>
+
+  
     <div class="form-group mb-2 mr-2">
       <label for="ph-min" class="mr-2">pH (min):</label>
-      <input type="text" id="ph-min" name="ph_min" class="form-control">
+      <input type="number" id="ph-min" formControlName="phMin" class="form-control">
     </div>
 
     <div class="form-group mb-2 mr-2">
       <label for="ph-max" class="mr-2">pH (max):</label>
-      <input type="text" id="ph-max" name="ph_max" class="form-control">
+      <input type="number" id="ph-max" formControlName="phMax" class="form-control">
     </div>
+  </div>
 
-    <div class="form-group mb-2 mr-2">
-      <label for="pollution-levels" class="mr-2">Pollution Levels:</label>
-      <select id="pollution-levels" name="pollution_levels" class="form-control">
-        <option value="">Todos</option>
-        <option value="Baixo">Baixo</option>
-        <option value="Medio">Médio</option>
-        <option value="Alto">Alto</option>
-      </select>
-    </div>
+   
 
-    <div class="form-group mb-2">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
   </form>
 </div>
 
 
+
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<table class="table table-info table-bordered">
+<table class="table table-info table-bordered container">
   <thead class="thead-dark">
     <tr>
       <th>Região</th>
@@ -122,7 +146,7 @@
       <th>pH</th>
       <th>Nível de Poluição</th>
       <th>Nome da Espécie</th>
-      <th>Status da Espécie</th>
+      <th>Status de conservação da Espécie</th>
       <th>Nome do Projeto de Conservação</th>
       <th>Tipo do Projeto de Conservação</th>
       <th>Tipo de Participação</th>

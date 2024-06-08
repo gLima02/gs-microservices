@@ -11,9 +11,11 @@ export class menuService {
   constructor(private http: HttpClient) { }
 
   dados:OceanData[] = [];
+  
 
-  listarOceanData(): Observable<OceanData[]> {
-    return this.http.get<OceanData[]>(this.apiUrl);
+  listarOceanData(apiUrl: string): Observable<OceanData[]> {
+    return this.http.get<OceanData[]>(apiUrl);
   }
+  
 }
 
