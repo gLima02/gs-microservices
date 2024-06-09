@@ -45,9 +45,7 @@ export class MenuComponent {
 
   listarFiltrado(): void {
     const apiUrl = this.buildApiUrl();
-    console.log('Nova URL da API:', apiUrl); // Verificar a URL gerada no console
     this.service.listarOceanData(apiUrl).subscribe((listaDados) => {
-      console.log('Dados filtrados:', listaDados); // Verificar os dados recebidos no console
       this.dados = listaDados;
     });
   }
@@ -63,8 +61,6 @@ export class MenuComponent {
     const phMin = this.dadosForm.get('phMin')?.value || '';
     const phMax = this.dadosForm.get('phMax')?.value || '';
     const pollutionLevels = this.dadosForm.get('pollutionLevels')?.value || '';
-
-    
 
     if (region) {
       apiUrl += `${region}`;
